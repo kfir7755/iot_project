@@ -2,6 +2,8 @@ package com.example.iotproject;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -9,6 +11,10 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private int progress;
+    private ProgressBar progressBar;
+    private TextView progressTextView;
+    private String progressText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,26 +22,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.in_training);
 
         ImageView imageView = findViewById(R.id.imageView);
-        String mode = "pushdown"; // Change this value to "pushdown" if you want to display the "pushdown" drawable
-        ProgressBar simpleProgressBar = findViewById(R.id.simpleProgressBar);
-        TextView progressTextView = findViewById(R.id.progressTextView);
+        // Change this value to "pushdown" or "pushup" depends on current mode
+        String mode = "pushup";
 
-        int progress = 20;
-        int max = 30;
-
-        simpleProgressBar.setProgress(progress);
-        simpleProgressBar.setMax(max);
-
-
-        String progressText = "Set " + progress + " out of " + max;
+        progressTextView = findViewById(R.id.progressTextView);
+        progressBar = findViewById(R.id.progressBar);
+        progress = progressBar.getProgress();
+        progressText = "Set " + progress + " out of " + progressBar.getMax();
         progressTextView.setText(progressText);
 
+//         Here's how we will update progress during sessions
+//         update_progress();
 
         if (mode.equals("pushup")) {
             imageView.setImageResource(R.drawable.pushup);
         } else if (mode.equals("pushdown")) {
             imageView.setImageResource(R.drawable.pushdown);
         }
+    }
+
+    private void update_progress(){
+        progress += 1;
+        progressBar.setProgress(progress);
+        progressText = "Set " + progress + " out of " + progressBar.getMax();
+        progressTextView.setText(progressText);
     }
 
 }
