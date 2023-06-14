@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomImageView">
+        <attr name="mode" format="enum">
+            <enum name="pushup" value="0" />
+            <enum name="pushdown" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>
