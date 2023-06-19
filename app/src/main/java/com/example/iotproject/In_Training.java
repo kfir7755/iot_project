@@ -1,16 +1,13 @@
 package com.example.iotproject;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class In_Training extends AppCompatActivity {
     private int progress;
     private ProgressBar progressBar;
     private TextView progressTextView;
@@ -19,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.in_training);
+        setContentView(R.layout.activity_in_training);
 
         ImageView imageView = findViewById(R.id.imageView);
         // Change this value to "pushdown" or "pushup" depends on current mode
